@@ -36,19 +36,19 @@ var userQuestionIndex = 0; // start on first question in array
 var buttonsEl = document.getElementsByClassName("button");
 
 for (var i = 0; i < buttonsEl.length; i++) {
-  buttonsEl[i].addEventListener("click", onButtonClick);
+  buttonsEl[i].addEventListener("click", function(e){
+    var userAnswer = e.target.textContent;
+    console.log(userAnswer);
+    var currentQuestion = questionsArray[userQuestionIndex -1];
+    var correctAnswer = currentQuestion.options[currentQuestion.correctAnswer];
+    console.log(correctAnswer);
+    evaluateAnswer(userAnswer, correctAnswer);
+  });
 }
 
-function onButtonClick() {
-  //can get the users choice,
-  //can get the current question's correct answer.
-  //pass those to evaluateAnswer(userAnswer, actual answer);
-  evaluateAnswer();
-}
-
-function evaluateAnswer(userAnswer, actualAnswer) {
+function evaluateAnswer(userAnswer,correctAnswer) {
   var rightOrWrongEl = document.getElementById("right-wrong");
-  if (userAnswer === actualAnswer) {
+  if (userAnswer === correctAnswer) {
     rightOrWrongEl.textContent = "Correct!";
   } else {
     rightOrWrongEl.textContent = "Incorrect";
