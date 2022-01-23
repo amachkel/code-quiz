@@ -31,22 +31,28 @@ var questionsArray = [
   },
 ];
 
+var currentState = [];
+
 var userQuestionIndex = 0; // start on first question in array
 
 var buttonsEl = document.getElementsByClassName("button");
+var userAnswer;
 
+var correctAnswer;
 for (var i = 0; i < buttonsEl.length; i++) {
-  buttonsEl[i].addEventListener("click", function(e){
-    var userAnswer = e.target.textContent;
+  buttonsEl[i].addEventListener("click", function (e) {
     console.log(userAnswer);
-    var currentQuestion = questionsArray[userQuestionIndex -1];
-    var correctAnswer = currentQuestion.options[currentQuestion.correctAnswer];
+    //renderQuestion() increments question index before event listener fires,
+    //so we have to look back 1 index in the questions array.
+    var currentQuestion = questionsArray[userQuestionIndex - 1];
+    correctAnswer = currentQuestion.options[currentQuestion.correctAnswer];
+    userAnswer = e.target.textContent;
     console.log(correctAnswer);
     evaluateAnswer(userAnswer, correctAnswer);
   });
 }
 
-function evaluateAnswer(userAnswer,correctAnswer) {
+function evaluateAnswer(userAnswer, correctAnswer) {
   var rightOrWrongEl = document.getElementById("right-wrong");
   if (userAnswer === correctAnswer) {
     rightOrWrongEl.textContent = "Correct!";
@@ -59,9 +65,30 @@ var startButtonEl = document.getElementById("start-button");
 
 startButtonEl.addEventListener("click", onStartButtonClick);
 
+var timerEl = document.getElementById("timer");
+
 function onStartButtonClick() {
   if (userQuestionIndex != 0) return;
   renderQuestion(userQuestionIndex);
+
+  startTimer();
+}
+var timerCount;
+
+function startTimer() {
+  timerCount = 120;
+  var timer = setInterval(function () {
+    timerCount--;
+    timerEl.textContent = timerCount;
+    if (timerCount > 0) {
+      if (userAnswer != correctAnswer) {
+        timerCount -= 10;
+      }
+    } else if (timerCount === 0) {
+      rightOrWrongEl.textContent = "You ran out of time. You FAIL.";
+      clearInterval(timer);
+    }
+  }, 1000);
 }
 
 function renderQuestion(questionIndex) {
@@ -69,9 +96,9 @@ function renderQuestion(questionIndex) {
   var questionEl = document.getElementById("question");
   var optionsEl = document.getElementsByClassName("button");
   questionEl.textContent = questionsArray[questionIndex].question;
-  for (var i =0; i < optionsEl.length; i++) {
-      var currentButton = optionsEl[i];
-      currentButton.textContent = questionsArray[questionIndex].options[i];
+  for (var i = 0; i < optionsEl.length; i++) {
+    var currentButton = optionsEl[i];
+    currentButton.textContent = questionsArray[questionIndex].options[i];
   }
   if (questionIndex == 0) {
     var cardEl = document.getElementById("card");
