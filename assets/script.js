@@ -72,8 +72,14 @@ function startTimer() {
       rightOrWrongEl.textContent = "You ran out of time.";
       clearInterval(timer);
     }
+    if (timerCount != 0) {
+      if (userQuestionIndex === 4 && buttonsEl) {
+        console.log("the end");
+      }
+    }
   }, 1000);
 }
+//Need to 
 
 function evaluateAnswer(userAnswer, correctAnswer) {
   if (userAnswer === correctAnswer) {
@@ -104,10 +110,7 @@ function renderQuestion(questionIndex) {
   userQuestionIndex++;
 }
 
-// function endGame(questionIndex, currentButton) {
-// if (questionIndex >= questionsArray.length) && (currentButton) {
-
-// }
-// }
-
 //if (last question answered) {stop timer and end game}
+//need variable to store timestamp when last question is answered
+//display remaining time as final score w/ button linked to new html page.
+
