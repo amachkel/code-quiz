@@ -52,15 +52,6 @@ for (var i = 0; i < buttonsEl.length; i++) {
   });
 }
 
-function evaluateAnswer(userAnswer, correctAnswer) {
-  var rightOrWrongEl = document.getElementById("right-wrong");
-  if (userAnswer === correctAnswer) {
-    rightOrWrongEl.textContent = "Correct!";
-  } else {
-    rightOrWrongEl.textContent = "Incorrect";
-  }
-  renderQuestion(userQuestionIndex);
-}
 var startButtonEl = document.getElementById("start-button");
 
 startButtonEl.addEventListener("click", onStartButtonClick);
@@ -80,15 +71,25 @@ function startTimer() {
   var timer = setInterval(function () {
     timerCount--;
     timerEl.textContent = timerCount;
-    if (timerCount > 0) {
-      if (userAnswer != correctAnswer) {
-        timerCount -= 10;
-      }
-    } else if (timerCount === 0) {
-      rightOrWrongEl.textContent = "You ran out of time. You FAIL.";
+    if (timerCount === 0) {
+      rightOrWrongEl.textContent = "You ran out of time.";
       clearInterval(timer);
     }
   }, 1000);
+}
+
+function evaluateAnswer(userAnswer, correctAnswer) {
+  var rightOrWrongEl = document.getElementById("right-wrong");
+  if (userAnswer === correctAnswer) {
+    rightOrWrongEl.textContent = "Correct!";
+  } else {
+    rightOrWrongEl.textContent = "Incorrect";
+    if (timerCount > 0) {
+      timerCount -= 10;
+    }
+  }
+
+  renderQuestion(userQuestionIndex);
 }
 
 function renderQuestion(questionIndex) {
