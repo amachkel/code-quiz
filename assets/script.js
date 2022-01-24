@@ -31,23 +31,20 @@ var questionsArray = [
   },
 ];
 
-var currentState = [];
-
 var userQuestionIndex = 0; // start on first question in array
-
 var buttonsEl = document.getElementsByClassName("button");
+var rightOrWrongEl = document.getElementById("right-wrong");
 var userAnswer;
-
 var correctAnswer;
+
 for (var i = 0; i < buttonsEl.length; i++) {
   buttonsEl[i].addEventListener("click", function (e) {
-    console.log(userAnswer);
     //renderQuestion() increments question index before event listener fires,
     //so we have to look back 1 index in the questions array.
     var currentQuestion = questionsArray[userQuestionIndex - 1];
     correctAnswer = currentQuestion.options[currentQuestion.correctAnswer];
     userAnswer = e.target.textContent;
-    console.log(correctAnswer);
+
     evaluateAnswer(userAnswer, correctAnswer);
   });
 }
@@ -79,13 +76,12 @@ function startTimer() {
 }
 
 function evaluateAnswer(userAnswer, correctAnswer) {
-  var rightOrWrongEl = document.getElementById("right-wrong");
   if (userAnswer === correctAnswer) {
     rightOrWrongEl.textContent = "Correct!";
   } else {
     rightOrWrongEl.textContent = "Incorrect";
     if (timerCount > 0) {
-      timerCount -= 10;
+      timerCount = Math.floor(timerCount / 2);
     }
   }
 
@@ -107,3 +103,11 @@ function renderQuestion(questionIndex) {
   }
   userQuestionIndex++;
 }
+
+// function endGame(questionIndex, currentButton) {
+// if (questionIndex >= questionsArray.length) && (currentButton) {
+
+// }
+// }
+
+//if (last question answered) {stop timer and end game}
