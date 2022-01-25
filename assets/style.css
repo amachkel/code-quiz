@@ -1,17 +1,35 @@
 :root {
-    --darkbrown: #32292F;
-    --bluegreen: #99E1D9;
-    --light:#F0F7F4;
-    --blue:#70ABAF;
-    --lightbrown: #705D56;
+  --darkbrown: #32292f;
+  --bluegreen: #99e1d9;
+  --light: #f0f7f4;
+  --blue: #70abaf;
+  --lightbrown: #705d56;
 }
+
 .custom-navbar {
-    background-color: var(--blue);
-    color:var(--light);
+  background-color: var(--blue);
+  color: var(--light);
+  border: 2px solid var(--lightbrown);
 }
 .custom-navbar a {
-    background-color: var(--blue);
+  background-color: var(--blue);
+  color: var(--light);
 }
 .custom-navbar :hover {
-    color:var(--lightbrown);
+  color: var(--lightbrown);
+}
+
+.custom-btn,
+.custom-options-btn {
+  color: var(--darkbrown);
+  background-color: var(--bluegreen);
+}
+.custom-card {
+    background-color: var(--light);
+}
+.custom-options-btn:hover,
+.custom-btn:hover {
+  color: var(--light);
+  background-color: var(--blue);
+  cursor: pointer;
 }

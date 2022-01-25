@@ -2,11 +2,11 @@ function createListEl(score, initial) {
   var scoreEl = document.createElement("li");
   scoreEl.setAttribute(
     "class",
-    "list-group-item d-flex justify-content-between align-items-center"
+    "list-group-item custom-list d-flex justify-content-between align-items-center"
   );
   scoreEl.textContent = initial;
   var spanEl = document.createElement("span");
-  spanEl.setAttribute("class", "badge badge-primary badge-pill");
+  spanEl.setAttribute("class", "custom-badge badge badge-primary badge-pill");
   spanEl.textContent = score;
   scoreEl.appendChild(spanEl);
   var scoresListEl = document.getElementById("scores-list");

@@ -1,0 +1,28 @@
+:root {
+    --darkbrown: #32292f;
+    --bluegreen: #99e1d9;
+    --light: #f0f7f4;
+    --blue: #70abaf;
+    --lightbrown: #705d56;
+  }
+
+.custom-container {
+background-color: var(--bluegreen);
+border:2px solid var(--lightbrown);
+}
+
+.custom-header {
+    color:var(--darkbrown);
+}
+
+.custom-list {
+  background-color: var(--light);
+  font-size: 26px;
+}
+
+.custom-badge {
+  color: var(--lightbrown);
+  background-color: var(--blue);
+  padding: 1rem;
+  border: 2px solid;
+}

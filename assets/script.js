@@ -91,7 +91,11 @@ function renderQuestion(questionIndex) {
   //first question(questionIndex[0]) stays hidden until start button is pressed
   if (questionIndex == 0) {
     var cardEl = document.getElementById("card");
-    cardEl.style.display = "block";
+    cardEl.setAttribute(
+      "class",
+      "card custom-card shadow d-flex flex-column align-items-center justify-content-between my-3 mx-5 p-5"
+    );
+    cardEl.style.display = "flex";
   }
 
   userQuestionIndex++;
@@ -118,18 +122,20 @@ function endGame() {
   //display remaining time as final score w/ button linked to new html page.
   var submitEl = document.getElementById("submit-score");
   var headerEl = document.getElementById("header");
-  submitEl.style.display = "block";
+  submitEl.style.display = "flex";
   finalScore = timerCount;
+  submitEl.setAttribute(
+    "class",
+    "d-flex flex-column align-items-center justify-content-between my-3 mx-auto p-5"
+  );
   headerEl.textContent = "Submit your score: " + finalScore;
   scoreInput(finalScore);
 }
 
-
 //need variable to store timestamp when last question is answered
 
-
 function scoreInput(finalScore) {
-  var submit = document.getElementById("submit");
+  var submit = document.getElementById("button-addon2");
   var initials = document.getElementById("initials");
 
   submit.addEventListener("click", function (e) {
