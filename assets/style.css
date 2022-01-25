@@ -1,0 +1,17 @@
+:root {
+    --darkbrown: #32292F;
+    --bluegreen: #99E1D9;
+    --light:#F0F7F4;
+    --blue:#70ABAF;
+    --lightbrown: #705D56;
+}
+.custom-navbar {
+    background-color: var(--blue);
+    color:var(--light);
+}
+.custom-navbar a {
+    background-color: var(--blue);
+}
+.custom-navbar :hover {
+    color:var(--lightbrown);
+}

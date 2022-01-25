@@ -32,6 +32,7 @@ var questionsArray = [
 ];
 
 var userQuestionIndex = 0; // start on first question in array
+//all questions are buttons
 var buttonsEl = document.getElementsByClassName("button");
 var rightOrWrongEl = document.getElementById("right-wrong");
 var userAnswer;
@@ -56,9 +57,10 @@ startButtonEl.addEventListener("click", onStartButtonClick);
 var timerEl = document.getElementById("timer");
 
 function onStartButtonClick() {
+  //if quiz has already started, start button does nothing.
   if (userQuestionIndex != 0) return;
+  //start button renders first question and starts timer.
   renderQuestion(userQuestionIndex);
-
   startTimer();
 }
 var timerCount;
@@ -82,9 +84,11 @@ function renderQuestion(questionIndex) {
   var optionsEl = document.getElementsByClassName("button");
   questionEl.textContent = questionsArray[questionIndex].question;
   for (var i = 0; i < optionsEl.length; i++) {
+    //
     var currentButton = optionsEl[i];
     currentButton.textContent = questionsArray[questionIndex].options[i];
   }
+  //first question(questionIndex[0]) stays hidden until start button is pressed
   if (questionIndex == 0) {
     var cardEl = document.getElementById("card");
     cardEl.style.display = "block";
@@ -99,9 +103,10 @@ function evaluateAnswer(userAnswer, correctAnswer) {
   } else {
     rightOrWrongEl.textContent = "Incorrect";
     if (timerCount > 0) {
-      timerCount = Math.floor(timerCount / 2);
+      timerCount = Math.floor(timerCount / 1.25);
     }
   }
+  //if last question answered, stop timer and end game
   if (userQuestionIndex === questionsArray.length) {
     endGame();
   }
@@ -110,13 +115,18 @@ function evaluateAnswer(userAnswer, correctAnswer) {
 var finalScore;
 function endGame() {
   clearInterval(timer);
+  //display remaining time as final score w/ button linked to new html page.
+  var submitEl = document.getElementById("submit-score");
+  var headerEl = document.getElementById("header");
+  submitEl.style.display = "block";
   finalScore = timerCount;
-  scoreInput();
+  headerEl.textContent = "Submit your score: " + finalScore;
+  scoreInput(finalScore);
 }
 
-//if (last question answered) {stop timer and end game}
+
 //need variable to store timestamp when last question is answered
-//display remaining time as final score w/ button linked to new html page.
+
 
 function scoreInput(finalScore) {
   var submit = document.getElementById("submit");
@@ -138,5 +148,6 @@ function scoreInput(finalScore) {
     };
     savedScores.push(scoreObj);
     localStorage.setItem("scores", JSON.stringify(savedScores));
+    window.location = "./scores.html";
   });
 }

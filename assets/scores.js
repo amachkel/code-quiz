@@ -1,9 +1,28 @@
+function createListEl(score, initial) {
+  var scoreEl = document.createElement("li");
+  scoreEl.setAttribute(
+    "class",
+    "list-group-item d-flex justify-content-between align-items-center"
+  );
+  scoreEl.textContent = initial;
+  var spanEl = document.createElement("span");
+  spanEl.setAttribute("class", "badge badge-primary badge-pill");
+  spanEl.textContent = score;
+  scoreEl.appendChild(spanEl);
+  var scoresListEl = document.getElementById("scores-list");
 
- var scoreEl = document.createElement("li");
- var scoresListEl = document.getElementById("scores-list");
- 
- scoresListEl.appendChild(scoreEl);
- scoreEl.textContent = initials.value;
+  scoresListEl.appendChild(scoreEl);
+}
 
-//localStorage.getItem("score", score) must make #score equal to time left
+function renderScores() {
+  var savedScoresString = localStorage.getItem("scores");
+  if (savedScoresString == null) {
+      savedScoresString = JSON.stringify([]);
+  }
+  var scoreObj = JSON.parse(savedScoresString);
 
+  for (var i = 0; i < scoreObj.length; i++) {
+    createListEl(scoreObj[i].score, scoreObj[i].initials);
+  }
+}
+renderScores();

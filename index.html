@@ -4,31 +4,51 @@
     <title></title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" type="css" href="assets/style.css" />
   </head>
   <body>
-      <header>
-        <span id="timer"></span>
-        <link id="high-scores" href="#" />
-      </header>
-      <main>
-          <button id="start-button">Start Quiz</button>
-          <div id="card" style="display:none;">
-              <h1 id="question"></h1>
-              <ol class="options">
-                  <li class="button"></li>
-                  <li class="button"></li>
-                  <li class="button"></li>
-                  <li class="button"></li>
-              </ol>
-              <p id="right-wrong"></p>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <a class="navbar-brand" href="scores.html">High Scores</a>
+      <span class="nav-item">
+        <span>Time remaining:</span>
+        <a id="timer" , tabindex="-1" aria-disabled="true"> </a>
+      </span>
+    </nav>
+    <main>
+      <button id="start-button">Start Quiz</button>
+      <div id="card" style="display: none">
+        <h1 id="question"></h1>
+        <ol class="options">
+          <li class="button"></li>
+          <li class="button"></li>
+          <li class="button"></li>
+          <li class="button"></li>
+        </ol>
+        <p id="right-wrong"></p>
+      </div>
+      <div id="submit-score" style="display: none">
+        <h2 id="header"></h2>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="initials"
+            placeholder="Your initials here"
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+          />
+          <div class="input-group-append">
+            <button class="btn" id="submit" type="button" href="scores.html">
+              Submit
+            </button>
           </div>
-          <div id="submit-score">
-            <h2>Submit Your score!</h2>
-      <input type="text" id="initials" placeholder="Your initials here" />
-      <button id="submit">Submit</button>
-          </div>
-      </main>
+        </div>
+      </div>
+    </main>
     <script src="assets/script.js"></script>
   </body>
 </html>
