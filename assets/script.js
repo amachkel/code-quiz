@@ -62,36 +62,18 @@ function onStartButtonClick() {
   startTimer();
 }
 var timerCount;
+var timer;
 
 function startTimer() {
   timerCount = 120;
-  var timer = setInterval(function () {
+  timer = setInterval(function () {
     timerCount--;
     timerEl.textContent = timerCount;
     if (timerCount === 0) {
       rightOrWrongEl.textContent = "You ran out of time.";
       clearInterval(timer);
     }
-    if (timerCount != 0) {
-      if (userQuestionIndex === 4 && buttonsEl) {
-        console.log("the end");
-      }
-    }
   }, 1000);
-}
-//Need to 
-
-function evaluateAnswer(userAnswer, correctAnswer) {
-  if (userAnswer === correctAnswer) {
-    rightOrWrongEl.textContent = "Correct!";
-  } else {
-    rightOrWrongEl.textContent = "Incorrect";
-    if (timerCount > 0) {
-      timerCount = Math.floor(timerCount / 2);
-    }
-  }
-
-  renderQuestion(userQuestionIndex);
 }
 
 function renderQuestion(questionIndex) {
@@ -107,10 +89,54 @@ function renderQuestion(questionIndex) {
     var cardEl = document.getElementById("card");
     cardEl.style.display = "block";
   }
+
   userQuestionIndex++;
+}
+
+function evaluateAnswer(userAnswer, correctAnswer) {
+  if (userAnswer === correctAnswer) {
+    rightOrWrongEl.textContent = "Correct!";
+  } else {
+    rightOrWrongEl.textContent = "Incorrect";
+    if (timerCount > 0) {
+      timerCount = Math.floor(timerCount / 2);
+    }
+  }
+  if (userQuestionIndex === questionsArray.length) {
+    endGame();
+  }
+  renderQuestion(userQuestionIndex);
+}
+var finalScore;
+function endGame() {
+  clearInterval(timer);
+  finalScore = timerCount;
+  scoreInput();
 }
 
 //if (last question answered) {stop timer and end game}
 //need variable to store timestamp when last question is answered
 //display remaining time as final score w/ button linked to new html page.
 
+function scoreInput(finalScore) {
+  var submit = document.getElementById("submit");
+  var initials = document.getElementById("initials");
+
+  submit.addEventListener("click", function (e) {
+    e.preventDefault();
+    var savedScores;
+    var savedScoresString = localStorage.getItem("scores");
+    if (savedScoresString == null) {
+      savedScores = [];
+    } else {
+      savedScores = JSON.parse(savedScoresString);
+    }
+    var initialsVal = initials.value;
+    var scoreObj = {
+      score: finalScore,
+      initials: initialsVal,
+    };
+    savedScores.push(scoreObj);
+    localStorage.setItem("scores", JSON.stringify(savedScores));
+  });
+}
