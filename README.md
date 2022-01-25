@@ -1,5 +1,5 @@
 ## Coding Quiz
-
+Deployed link:  https://amachkel.github.io/code-quiz/
 ## User Story
 
 ```
