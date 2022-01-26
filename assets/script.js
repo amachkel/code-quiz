@@ -94,7 +94,7 @@ function renderQuestion(questionIndex) {
   var optionsEl = document.getElementsByClassName("button");
   questionEl.textContent = questionsArray[questionIndex].question;
   for (var i = 0; i < optionsEl.length; i++) {
-    //
+    
     var currentButton = optionsEl[i];
     currentButton.textContent = questionsArray[questionIndex].options[i];
   }
@@ -123,6 +123,7 @@ function evaluateAnswer(userAnswer, correctAnswer) {
   //if last question answered, stop timer and end game
   if (userQuestionIndex === questionsArray.length) {
     endGame();
+
   }
   renderQuestion(userQuestionIndex);
 }
@@ -151,7 +152,7 @@ function scoreInput(finalScore) {
   var submit = document.getElementById("button-addon2");
   var initials = document.getElementById("initials");
 
-  submit.addEventListener("submit", function (e) {
+  submit.addEventListener("click", function (e) {
     e.preventDefault();
     var savedScores;
     var savedScoresString = localStorage.getItem("scores");
