@@ -126,7 +126,7 @@ function endGame() {
   cardwrapEl.style.display = "none";
   submitEl.style.display = "flex";
   finalScore = timerCount;
-  
+
   submitEl.setAttribute(
     "class",
     "d-flex flex-column align-items-center justify-content-between my-3 mx-auto p-5"
@@ -155,8 +155,13 @@ function scoreInput(finalScore) {
       score: finalScore,
       initials: initialsVal,
     };
-    savedScores.push(scoreObj);
-    localStorage.setItem("scores", JSON.stringify(savedScores));
-    window.location = "./scores.html";
+    if (!initialsVal) {
+      alert("Error! Please enter your initials to submit your score.");
+      return;
+    } else {
+      savedScores.push(scoreObj);
+      localStorage.setItem("scores", JSON.stringify(savedScores));
+      window.location = "./scores.html";
+    }
   });
 }
