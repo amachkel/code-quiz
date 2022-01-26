@@ -1,5 +1,15 @@
 var questionsArray = [
   {
+    question: `Inside which HTML element do we put the JavaScript?`,
+    options: [
+      `<script>`,
+      `<javascript>`,
+      `<scripting>`,
+      `<js>`,
+    ],
+    correctAnswer: 0,
+  },
+  {
     question: `How do you write "Hello W3docs" in an alert box?`,
     options: [
       `alertBox("Hello W3docs")`,
@@ -67,7 +77,7 @@ var timerCount;
 var timer;
 
 function startTimer() {
-  timerCount = 120;
+  timerCount = 30;
   timer = setInterval(function () {
     timerCount--;
     timerEl.textContent = timerCount;
@@ -141,7 +151,7 @@ function scoreInput(finalScore) {
   var submit = document.getElementById("button-addon2");
   var initials = document.getElementById("initials");
 
-  submit.addEventListener("click", function (e) {
+  submit.addEventListener("submit", function (e) {
     e.preventDefault();
     var savedScores;
     var savedScoresString = localStorage.getItem("scores");
