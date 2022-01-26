@@ -15,6 +15,8 @@ function createListEl(score, initial) {
 }
 
 function renderScores() {
+  var scoresListEl = document.getElementById("scores-list");
+  scoresListEl.innerHTML = "";
   var savedScoresString = localStorage.getItem("scores");
   if (savedScoresString == null) {
       savedScoresString = JSON.stringify([]);
@@ -26,3 +28,16 @@ function renderScores() {
   }
 }
 renderScores();
+
+var goBackBtn = document.getElementById("go-back");
+
+goBackBtn.addEventListener("click", function () {
+  window.location = "./index.html";
+})
+
+var clearBtn = document.getElementById("clear-btn");
+
+clearBtn.addEventListener("click", function() {
+  localStorage.clear();
+  renderScores();
+})

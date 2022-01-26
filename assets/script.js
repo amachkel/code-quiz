@@ -122,8 +122,11 @@ function endGame() {
   //display remaining time as final score w/ button linked to new html page.
   var submitEl = document.getElementById("submit-score");
   var headerEl = document.getElementById("header");
+  var cardwrapEl = document.getElementById("card-wrapper");
+  cardwrapEl.style.display = "none";
   submitEl.style.display = "flex";
   finalScore = timerCount;
+  
   submitEl.setAttribute(
     "class",
     "d-flex flex-column align-items-center justify-content-between my-3 mx-auto p-5"

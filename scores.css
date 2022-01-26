@@ -1,18 +1,18 @@
 :root {
-    --darkbrown: #32292f;
-    --bluegreen: #99e1d9;
-    --light: #f0f7f4;
-    --blue: #70abaf;
-    --lightbrown: #705d56;
-  }
+  --darkbrown: #32292f;
+  --bluegreen: #99e1d9;
+  --light: #f0f7f4;
+  --blue: #70abaf;
+  --lightbrown: #705d56;
+}
 
 .custom-container {
-background-color: var(--bluegreen);
-border:2px solid var(--lightbrown);
+  background-color: var(--bluegreen);
+  border: 2px solid var(--lightbrown);
 }
 
 .custom-header {
-    color:var(--darkbrown);
+  color: var(--darkbrown);
 }
 
 .custom-list {
@@ -25,4 +25,15 @@ border:2px solid var(--lightbrown);
   background-color: var(--blue);
   padding: 1rem;
   border: 2px solid;
+}
+
+.custom-btn {
+  color: var(--darkbrown);
+  background-color: var(--bluegreen);
+}
+
+.custom-btn:hover {
+  color: var(--lightbrown);
+  color: var(--light);
+  background-color: var(--blue);
 }
