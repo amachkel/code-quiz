@@ -18,9 +18,10 @@ WHEN all questions are answered or the timer reaches 0
 THEN the game is over
 WHEN the game is over
 THEN I can save my initials and my score
+```
 
+## See the Code Quiz in action:
 
-
-https://user-images.githubusercontent.com/84882398/151379850-e02e59d0-8286-4048-b2e0-3610cd926ae8.mp4
+https://user-images.githubusercontent.com/84882398/151381160-2d8b8cb5-9e29-47f8-bbba-4f5422e4b6a2.mp4
 
 Deployed link:  https://amachkel.github.io/code-quiz/
