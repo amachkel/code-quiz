@@ -1,10 +1,13 @@
 ## Coding Quiz
 Deployed link:  https://amachkel.github.io/code-quiz/
-## User Story
+## Description
 
 ```
-A timed quiz on JavaScript fundamentals that stores high scores.
+A timed quiz on JavaScript fundamentals that stores your remaining time as your score. 
 ```
+
+![code-quiz](https://user-images.githubusercontent.com/84882398/151280169-df8d3c9a-e030-4dc6-9f01-97c9d71eea5c.png)
+
 
 ## Acceptance Criteria
 ```
@@ -19,3 +22,4 @@ WHEN all questions are answered or the timer reaches 0
 THEN the game is over
 WHEN the game is over
 THEN I can save my initials and my score
+
