@@ -24,4 +24,6 @@ THEN I can save my initials and my score
 
 https://user-images.githubusercontent.com/84882398/151381160-2d8b8cb5-9e29-47f8-bbba-4f5422e4b6a2.mp4
 
-Deployed link:  https://amachkel.github.io/code-quiz/
+<br>
+
+[Click here to take the quiz!](https://amachkel.github.io/code-quiz/)
