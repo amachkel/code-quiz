@@ -1,16 +1,12 @@
 ## Coding Quiz
-Deployed link:  https://amachkel.github.io/code-quiz/
-## Description
 
 ```
-A timed quiz on JavaScript fundamentals that stores your remaining time as your score. 
-```
+A timed quiz on JavaScript fundamentals that stores your
+remaining time as your score. On a separate HTML and JS file, the 
+high scores page pulls from local storage and displays
+a list. The user can then clear the high scores and go back to the quiz.
+This project utilizes Bootstrap for styling.
 
-![code-quiz](https://user-images.githubusercontent.com/84882398/151280169-df8d3c9a-e030-4dc6-9f01-97c9d71eea5c.png)
-
-
-## Acceptance Criteria
-```
 GIVEN I am taking a code quiz
 WHEN I click the start button
 THEN a timer starts and I am presented with a question
@@ -23,3 +19,8 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and my score
 
+
+
+https://user-images.githubusercontent.com/84882398/151379850-e02e59d0-8286-4048-b2e0-3610cd926ae8.mp4
+
+Deployed link:  https://amachkel.github.io/code-quiz/
