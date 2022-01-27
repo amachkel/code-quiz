@@ -89,9 +89,11 @@ function startTimer() {
 }
 
 function renderQuestion(questionIndex) {
+  //doesn't render question when it reaches the last object in the questionsArray
   if (questionIndex >= questionsArray.length) return;
   var questionEl = document.getElementById("question");
   var optionsEl = document.getElementsByClassName("button");
+  //loops through questionsArray options and displays them as buttons for the respective questions
   questionEl.textContent = questionsArray[questionIndex].question;
   for (var i = 0; i < optionsEl.length; i++) {
     
@@ -110,14 +112,14 @@ function renderQuestion(questionIndex) {
 
   userQuestionIndex++;
 }
-
+//compares userAnswer to correctAnswer. If incorrect, timerCount is decremented.
 function evaluateAnswer(userAnswer, correctAnswer) {
   if (userAnswer === correctAnswer) {
     rightOrWrongEl.textContent = "Correct!";
   } else {
     rightOrWrongEl.textContent = "Incorrect";
     if (timerCount > 0) {
-      timerCount = Math.floor(timerCount / 1.25);
+      timerCount = Math.floor(timerCount / 1.5);
     }
   }
   //if last question answered, stop timer and end game
@@ -145,8 +147,6 @@ function endGame() {
   headerEl.textContent = "Submit your score: " + finalScore;
   scoreInput(finalScore);
 }
-
-//need variable to store timestamp when last question is answered
 
 function scoreInput(finalScore) {
   var submit = document.getElementById("button-addon2");
