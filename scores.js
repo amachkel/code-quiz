@@ -22,12 +22,16 @@ function renderScores() {
     savedScoresString = JSON.stringify([]);
   }
   var scoreObj = JSON.parse(savedScoresString);
-
+  scoreObj = sortScores(scoreObj);
   for (var i = 0; i < scoreObj.length; i++) {
     createListEl(scoreObj[i].score, scoreObj[i].initials);
   }
 }
 renderScores();
+
+function sortScores(unsortedScores) {
+  return unsortedScores.sort((a, b) => (a.score < b.score ? 1 : -1));
+}
 
 var goBackBtn = document.getElementById("go-back");
 
@@ -291,6 +295,6 @@ const stop = () => {
 start();
 stop();
 
-// CoderZ90, C. Z. (2021, August 18). Add confetti effect in 5 minutes. 
-// DEV Community. Retrieved January 28, 2022, from 
+// CoderZ90, C. Z. (2021, August 18). Add confetti effect in 5 minutes.
+// DEV Community. Retrieved January 28, 2022, from
 // https://dev.to/official_fire/creating-a-confetti-effect-in-5-minutes-16h3

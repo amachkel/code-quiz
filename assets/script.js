@@ -1,12 +1,7 @@
 var questionsArray = [
   {
     question: `Inside which HTML element do we put the JavaScript?`,
-    options: [
-      `<script>`,
-      `<javascript>`,
-      `<scripting>`,
-      `<js>`,
-    ],
+    options: [`<script>`, `<javascript>`, `<scripting>`, `<js>`],
     correctAnswer: 0,
   },
   {
@@ -82,7 +77,8 @@ function startTimer() {
     timerCount--;
     timerEl.textContent = timerCount;
     if (timerCount === 0) {
-      rightOrWrongEl.textContent = "You ran out of time. Please refresh page to play again.";
+      rightOrWrongEl.textContent =
+        "You ran out of time. Please refresh page to play again.";
       clearInterval(timer);
     }
   }, 1000);
@@ -96,7 +92,6 @@ function renderQuestion(questionIndex) {
   //loops through questionsArray options and displays them as buttons for the respective questions
   questionEl.textContent = questionsArray[questionIndex].question;
   for (var i = 0; i < optionsEl.length; i++) {
-    
     var currentButton = optionsEl[i];
     currentButton.textContent = questionsArray[questionIndex].options[i];
   }
@@ -125,7 +120,6 @@ function evaluateAnswer(userAnswer, correctAnswer) {
   //if last question answered, stop timer and end game
   if (userQuestionIndex === questionsArray.length) {
     endGame();
-
   }
   renderQuestion(userQuestionIndex);
 }
@@ -178,4 +172,7 @@ function scoreInput(finalScore) {
       window.location = "./scores.html";
     }
   });
+}
+function sortScores(unsortedScores) {
+  return unsortedScores.sort((a, b) => (a.score > b.score ? 1 : -1));
 }
