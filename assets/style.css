@@ -5,7 +5,9 @@
   --blue: #70abaf;
   --lightbrown: #705d56;
 }
-
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
 .custom-navbar {
   background-color: var(--blue);
   color: var(--light);

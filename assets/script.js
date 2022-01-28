@@ -131,11 +131,13 @@ function evaluateAnswer(userAnswer, correctAnswer) {
 }
 var finalScore;
 function endGame() {
+  //stops timer
   clearInterval(timer);
   //display remaining time as final score w/ button linked to new html page.
   var submitEl = document.getElementById("submit-score");
   var headerEl = document.getElementById("header");
   var cardwrapEl = document.getElementById("card-wrapper");
+  //hides questions and answers card and displays submit element
   cardwrapEl.style.display = "none";
   submitEl.style.display = "flex";
   finalScore = timerCount;
@@ -156,6 +158,7 @@ function scoreInput(finalScore) {
     e.preventDefault();
     var savedScores;
     var savedScoresString = localStorage.getItem("scores");
+    //if nothing has been saved yet, give savedScores an empty array
     if (savedScoresString == null) {
       savedScores = [];
     } else {
