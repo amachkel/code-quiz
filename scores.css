@@ -1,20 +1,20 @@
 :root {
-  --darkbrown: #32292f;
-  --bluegreen: #99e1d9;
-  --light: #f0f7f4;
-  --blue: #70abaf;
-  --lightbrown: #705d56;
+  --darkpurple: #210124;
+  --blue: #00A7E1;
+  --light: #F4FFFD;
+  --darkblue: #007EA7;
+  --lightpurple: #750D37;
 }
 body {
   font-family: 'Ubuntu', sans-serif;
 }
 .custom-container {
-  background-color: var(--bluegreen);
-  border: 2px solid var(--lightbrown);
+  background-color: var(--blue);
+  border: 2px solid var(--lightpurple);
 }
 
 .custom-header {
-  color: var(--darkbrown);
+  color: var(--darkpurple);
 }
 
 .custom-list {
@@ -23,19 +23,19 @@ body {
 }
 
 .custom-badge {
-  color: var(--lightbrown);
-  background-color: var(--blue);
+  color: var(--lightpurple);
+  background-color: var(--darkblue);
   padding: 1rem;
   border: 2px solid;
 }
 
 .custom-btn {
-  color: var(--darkbrown);
-  background-color: var(--bluegreen);
+  color: var(--darkpurple);
+  background-color: var(--blue);
 }
 
 .custom-btn:hover {
-  color: var(--lightbrown);
+  color: var(--lightpurple);
   color: var(--light);
-  background-color: var(--blue);
+  background-color: var(--darkblue);
 }
