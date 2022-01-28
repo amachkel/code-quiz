@@ -82,7 +82,7 @@ function startTimer() {
     timerCount--;
     timerEl.textContent = timerCount;
     if (timerCount === 0) {
-      rightOrWrongEl.textContent = "You ran out of time.";
+      rightOrWrongEl.textContent = "You ran out of time. Please refresh page to play again.";
       clearInterval(timer);
     }
   }, 1000);
