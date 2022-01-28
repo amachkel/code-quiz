@@ -22,7 +22,8 @@ THEN I can save my initials and my score
 
 ## See the Code Quiz in action:
 
-https://user-images.githubusercontent.com/84882398/151381160-2d8b8cb5-9e29-47f8-bbba-4f5422e4b6a2.mp4
+
+https://user-images.githubusercontent.com/84882398/151596644-405b46f3-8705-4391-b371-3a62817d1200.mp4
 
 <br>
 
