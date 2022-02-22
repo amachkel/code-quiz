@@ -20,6 +20,13 @@ WHEN the game is over
 THEN I can save my initials and my score
 ```
 
+## Take a Look:
+
+![Screenshot (39)](https://user-images.githubusercontent.com/84882398/155209928-b709e144-9ff3-4501-b565-e0c6fe17d377.png)
+
+![Screenshot (41)](https://user-images.githubusercontent.com/84882398/155210257-3c6a9a82-7f50-4955-8874-5f01bb77a46b.png)
+
+
 ## See the Code Quiz in action:
 
 
